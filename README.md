@@ -68,3 +68,6 @@
       )
       ```
       <img src="https://github.com/mvclab-ntust-course/course7-llm-irene0613/blob/main/image/IA3.png" width="500px"><br>  
+
+## Homework 2 - Write the README.md in latex  
+本次是使用線上資源[overleaf](https://www.google.com.tw/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj51s-_gvmGAxXxgq8BHUpCBRgQFnoECBIQAQ&url=https%3A%2F%2Fwww.overleaf.com%2F&usg=AOvVaw02MN5sJbAaTyjdRNXsJYWE&opi=89978449)來撰寫latex，詳細內容請看[peft_latex.pdf](https://github.com/mvclab-ntust-course/course7-llm-irene0613/blob/main/peft_latex.pdf)，撰寫的程式碼請參考[peft_latex.tex](https://github.com/mvclab-ntust-course/course7-llm-irene0613/blob/main/peft_latex.tex)。
