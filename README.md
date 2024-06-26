@@ -18,19 +18,19 @@
     * 負責模型初始化、訓練參數設置、訓練&驗證數據集設置、分詞器設置與使用自定義評估指標  
 5. LoRA & IA3 配置與其相對結果  
 **LoraConfig_1**  
-   ```
-   peft_config_1 = LoraConfig(
-       lora_alpha=16,          
-       lora_dropout=0.1,         
-       r=64,              
-       bias="none",          
-       task_type="SEQ_CLS",      
-       target_modules=["q_lin", "v_lin", "k_lin", "out_lin"], 
-   )
-   ```
-   <img src="https://github.com/mvclab-ntust-course/course7-llm-irene0613/blob/main/image/lora_1.png" width="500px"><br>  
+```
+peft_config_1 = LoraConfig(
+    lora_alpha=16,          
+    lora_dropout=0.1,         
+    r=64,              
+    bias="none",          
+    task_type="SEQ_CLS",      
+    target_modules=["q_lin", "v_lin", "k_lin", "out_lin"], 
+)
+```
+<img src="https://github.com/mvclab-ntust-course/course7-llm-irene0613/blob/main/image/lora_1.png" width="500px"><br>  
   
-**LoraConfig_2**
+**LoraConfig_2**  
    ```
    # 改變目標模組
    peft_config_2 = LoraConfig(
