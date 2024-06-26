@@ -1,6 +1,6 @@
 # Week 7  
-## Homework - Try difference LoRA configs  
-### 訓練方法  
+## Homework 1 - Try difference LoRA configs  
+訓練方法主要分成以下幾個步驟，詳細內容請看[Transformers_peft](https://github.com/mvclab-ntust-course/course7-llm-irene0613/blob/main/Transformers_peft.ipynb)
 1. 模型和分詞器  
     * 使用`distilbert-base-cased`作為基礎模型  
     * 使用相同的模型檢查點初始化分詞器  
@@ -18,52 +18,52 @@
     * 負責模型初始化、訓練參數設置、訓練&驗證數據集設置、分詞器設置與使用自定義評估指標  
 5. LoRA & IA3 配置與其相對結果  
 **LoraConfig_1**  
-```
-peft_config_1 = LoraConfig(
-    lora_alpha=16,          
-    lora_dropout=0.1,         
-    r=64,              
-    bias="none",          
-    task_type="SEQ_CLS",      
-    target_modules=["q_lin", "v_lin", "k_lin", "out_lin"], 
-)
-```
-<img src="https://github.com/mvclab-ntust-course/course7-llm-irene0613/blob/main/image/lora_1.png" width="500px"><br>  
+   ```
+   peft_config_1 = LoraConfig(
+       lora_alpha=16,          
+       lora_dropout=0.1,         
+       r=64,              
+       bias="none",          
+       task_type="SEQ_CLS",      
+       target_modules=["q_lin", "v_lin", "k_lin", "out_lin"], 
+   )
+   ```
+   <img src="https://github.com/mvclab-ntust-course/course7-llm-irene0613/blob/main/image/lora_1.png" width="500px"><br>  
   
 **LoraConfig_2**
-```
-# 改變目標模組
-peft_config_2 = LoraConfig(
-    lora_alpha=16,
-    lora_dropout=0.1,
-    r=64,
-    bias="none",
-    task_type="SEQ_CLS",
-    target_modules=["q_lin", "v_lin", "k_lin", "out_lin", "ffn.lin1", "ffn.lin2"],  # 新增"ffn.lin1", "ffn.lin2" 前饋神經網絡
-)
-```
-<img src="https://github.com/mvclab-ntust-course/course7-llm-irene0613/blob/main/image/lora_2.png" width="500px"><br>  
+   ```
+   # 改變目標模組
+   peft_config_2 = LoraConfig(
+       lora_alpha=16,
+       lora_dropout=0.1,
+       r=64,
+       bias="none",
+       task_type="SEQ_CLS",
+       target_modules=["q_lin", "v_lin", "k_lin", "out_lin", "ffn.lin1", "ffn.lin2"],  # 新增"ffn.lin1", "ffn.lin2" 前饋神經網絡
+   )
+   ```
+   <img src="https://github.com/mvclab-ntust-course/course7-llm-irene0613/blob/main/image/lora_2.png" width="500px"><br>  
   
 **LoraConfig_3**
-```
-# 改變lora_alpha、lora_dropout、r
-peft_config_3 = LoraConfig(
-    lora_alpha=32,
-    lora_dropout=0.2,
-    r=32,
-    bias="none",
-    task_type="SEQ_CLS",
-    target_modules=["q_lin", "v_lin", "k_lin", "out_lin"],
-)
-```
-<img src="https://github.com/mvclab-ntust-course/course7-llm-irene0613/blob/main/image/lora_3.png" width="500px"><br>  
+   ```
+   # 改變lora_alpha、lora_dropout、r
+   peft_config_3 = LoraConfig(
+       lora_alpha=32,
+       lora_dropout=0.2,
+       r=32,
+       bias="none",
+       task_type="SEQ_CLS",
+       target_modules=["q_lin", "v_lin", "k_lin", "out_lin"],
+   )
+   ```
+   <img src="https://github.com/mvclab-ntust-course/course7-llm-irene0613/blob/main/image/lora_3.png" width="500px"><br>  
   
 **IA3Config**
-```
-peft_config_4 = IA3Config(
-    task_type=TaskType.SEQ_CLS,
-    target_modules=["q_lin", "v_lin", "k_lin", "out_lin", "ffn.lin1", "ffn.lin2"],
-    feedforward_modules=["ffn.lin1", "ffn.lin2"],
-)
-```
-<img src="https://github.com/mvclab-ntust-course/course7-llm-irene0613/blob/main/image/IA3.png" width="500px"><br>  
+   ```
+   peft_config_4 = IA3Config(
+       task_type=TaskType.SEQ_CLS,
+       target_modules=["q_lin", "v_lin", "k_lin", "out_lin", "ffn.lin1", "ffn.lin2"],
+       feedforward_modules=["ffn.lin1", "ffn.lin2"],
+   )
+   ```
+   <img src="https://github.com/mvclab-ntust-course/course7-llm-irene0613/blob/main/image/IA3.png" width="500px"><br>  
