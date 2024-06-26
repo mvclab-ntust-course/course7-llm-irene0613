@@ -16,7 +16,7 @@
 4. Trainer  
     * 使用 Hugging Face 的 Trainer 管理訓練過程  
     * 負責模型初始化、訓練參數設置、訓練&驗證數據集設置、分詞器設置與使用自定義評估指標  
-5. LoRA & IA3 配置與其相對結果
+5. LoRA & IA3 配置與其相對結果  
 **LoraConfig_1**  
 ```
 peft_config_1 = LoraConfig(
